@@ -1,0 +1,17 @@
+app = "hn-ipfs"
+primary_region = "atl"
+
+[build]
+  image = "ceramicnetwork/go-ipfs-daemon:f19c96be94a93060b492d0773b942caf76ed6df5"
+
+[[mounts]]
+  source = "ipfs_data"
+  destination = "/data/ipfs"
+
+[http_service]
+  internal_port = 4001
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
